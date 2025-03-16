@@ -79,10 +79,18 @@ body {
 .main__rules {
   background-color: #1fcca4;
   border-bottom: 1px solid #283e50;
-
 }
 
 .main__start {
   background-color: #0197f6;
+}
 
+.main__rules:hover {
+  background-color: #1cbb96;
+  transition: ease .3s;
+}
+
+.main__start:hover {
+  background-color: #0090e9;
+  transition: ease .3s;
 }
