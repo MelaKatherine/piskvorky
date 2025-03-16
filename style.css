@@ -5,6 +5,18 @@
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
 body {
   display: flex;
   justify-content: center;
@@ -48,4 +60,29 @@ body {
 
 .main__text {
   line-height: 1.35;
+}
+
+.main__btns {
+  display: flex;
+  flex-direction: column;
+}
+
+.main__btns button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1.1rem 1rem;
+  color: #ffffff;
+}
+
+.main__rules {
+  background-color: #1fcca4;
+  border-bottom: 1px solid #283e50;
+
+}
+
+.main__start {
+  background-color: #0197f6;
+
 }
