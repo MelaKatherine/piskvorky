@@ -85,12 +85,61 @@ body {
   background-color: #0197f6;
 }
 
-.main__rules:hover {
+.main__rules:hover,
+.game__btn--home:hover {
   background-color: #1cbb96;
   transition: ease .3s;
 }
 
-.main__start:hover {
+.main__start:hover,
+.game__btn--restart:hover {
   background-color: #0090e9;
   transition: ease .3s;
+}
+
+
+/*HRA*/
+
+.game {
+  display: flex;
+  flex-direction: column;
+  max-width: 80vmin;
+  padding: 0px 15px;
+}
+
+.game__menu--player {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.game__menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}
+
+.game__menu--player {
+  display: flex;
+}
+
+.game__icon--player {
+  padding-left: 5px;
+}
+
+.game__btn {
+  border: none;
+  border-radius: 5px 5px 5px 5px;
+  padding: 0.8rem 0.8rem;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.game__btn--home {
+  background-color: #1fcca4;
+
+}
+
+.game__btn--restart {
+  background-color: #0197f6;
 }
