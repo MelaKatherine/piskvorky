@@ -3,6 +3,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 a {
@@ -21,7 +22,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   font-size: 15px;
   font-weight: 400;
   font-style: normal;
@@ -56,6 +57,7 @@ body {
   font-family: "Lobster", sans-serif;
   letter-spacing: 0.1rem;
   margin-bottom: 2rem;
+  text-align: center;
 }
 
 .main__text {
@@ -104,7 +106,6 @@ body {
   display: flex;
   flex-direction: column;
   max-width: 80vmin;
-  padding: 0px 15px;
 }
 
 .game__menu--player {
@@ -116,7 +117,8 @@ body {
 .game__menu {
   display: flex;
   justify-content: space-between;
-  align-items: center
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
 .game__menu--player {
@@ -142,4 +144,25 @@ body {
 
 .game__btn--restart {
   background-color: #0197f6;
+}
+
+.game__area {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid #283e50;
+}
+
+.game__box {
+  aspect-ratio: 1 / 1;
+  width: 10%;
+  border: 1px solid #283e50;
+  text-decoration: none;
+  margin: 0px;
+  padding-block: 5px;
+  background-color: rgba(250, 250, 250, 0.6);
+}
+
+.game__box:hover {
+  opacity: 0.8;
+  transition: ease .4s;
 }
