@@ -53,10 +53,10 @@ body {
 }
 
 .main__title {
-  font-size: 3rem;
+  font-size: 2.8rem;
   font-family: "Lobster", sans-serif;
   letter-spacing: 0.1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
   text-align: center;
 }
 
@@ -163,7 +163,8 @@ body {
   background-color: rgba(250, 250, 250, 0.4);
 }
 
-.game__box:hover {
+.game__box:hover,
+.game__box:focus {
   background-color: rgba(250, 250, 250, 0.6);
   transition: ease .4s;
 }
