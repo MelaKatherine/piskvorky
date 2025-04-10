@@ -168,3 +168,18 @@ body {
   background-color: rgba(250, 250, 250, 0.6);
   transition: ease .4s;
 }
+
+
+.board__field--circle {
+  background-image: url(podklady/circle_player.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70%;
+}
+
+.board__field--cross {
+  background-image: url(podklady/cross_player.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70%;
+}
