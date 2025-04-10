@@ -4,6 +4,7 @@ const iconPlayer = document.querySelector('.game__icon--player');
 //console.log(buttons);
 
 const addPlayer = (event) => {
+  event.target.disabled = true;
   if (currentPlayer === 'circle') {
     event.target.classList.add('board__field--circle');
     currentPlayer = 'cross';
