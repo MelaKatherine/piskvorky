@@ -175,6 +175,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 70%;
+  animation: boxAnimation .30s;
 }
 
 .board__field--cross {
@@ -182,4 +183,17 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 70%;
+  animation: boxAnimation .30s;
+}
+
+@keyframes boxAnimation {
+  from {
+    background-size: 0%;
+    background-position: center;
+  }
+
+  to {
+    background-size: 70%;
+    background-position: center;
+  }
 }
