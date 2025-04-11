@@ -1,8 +1,23 @@
 let currentPlayer = 'circle';
-const gameBox = document.querySelectorAll('.game__box');
+
+const gameArea = document.querySelector('.game__area');
 const iconPlayer = document.querySelector('.game__icon--player');
 const btnRestart = document.querySelector('.game__btn--restart');
-//console.log(buttons);
+
+const addArea = () => {
+  for (let i = 0; i < 100; i++) {
+    const gameBox = document.createElement('button');
+    gameBox.classList.add('game__box');
+    gameArea.appendChild(gameBox);
+    gameBox.addEventListener('click', addPlayer);
+  }
+};
+
+/*const addArea = () => {
+  for (let i = 0; i < 100; i++) {
+    gameArea.innerHTML = `<button class="game__box"></button>`;
+  }
+};*/
 
 const addPlayer = (event) => {
   event.target.disabled = true;
@@ -23,8 +38,8 @@ const restart = (event) => {
   }
 };
 
-gameBox.forEach((box) => {
-  box.addEventListener('click', addPlayer);
-});
-
+// gameBox.forEach((box) => {
+//   box.addEventListener('click', addPlayer);
+// });
+addArea();
 btnRestart.addEventListener('click', restart);
