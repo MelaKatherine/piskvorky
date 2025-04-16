@@ -4,7 +4,7 @@ const gameArea = document.querySelector('.game__area');
 const iconPlayer = document.querySelector('.game__icon--player');
 const btnRestart = document.querySelector('.game__btn--restart');
 
-const addArea = () => {
+/*const addArea = () => {
   for (let i = 0; i < 100; i++) {
     const gameBox = document.createElement('button');
     gameBox.classList.add('game__box');
@@ -12,23 +12,28 @@ const addArea = () => {
     gameBox.addEventListener('click', addPlayer);
   }
 };
-
-/*const addArea = () => {
+*/
+const addArea = () => {
+  gameArea.innerHtml = '';
   for (let i = 0; i < 100; i++) {
-    gameArea.innerHTML = `<button class="game__box"></button>`;
+    gameArea.innerHTML += `<button class="game__box"></button>`;
   }
-};*/
+};
+addArea();
+
+const gameBox = document.querySelectorAll('.game__box');
+//console.log(gameBox);
 
 const addPlayer = (event) => {
   event.target.disabled = true;
   if (currentPlayer === 'circle') {
     event.target.classList.add('board__field--circle');
     currentPlayer = 'cross';
-    iconPlayer.src = 'podklady/circle.svg';
+    iconPlayer.src = 'podklady/cross.svg';
   } else {
     event.target.classList.add('board__field--cross');
     currentPlayer = 'circle';
-    iconPlayer.src = 'podklady/cross.svg';
+    iconPlayer.src = 'podklady/circle.svg';
   }
 };
 
@@ -38,8 +43,8 @@ const restart = (event) => {
   }
 };
 
-// gameBox.forEach((box) => {
-//   box.addEventListener('click', addPlayer);
-// });
-addArea();
+gameBox.forEach((box) => {
+  box.addEventListener('click', addPlayer);
+});
+
 btnRestart.addEventListener('click', restart);
