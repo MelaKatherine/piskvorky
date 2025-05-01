@@ -65,6 +65,7 @@ const addPlayer = (event) => {
     currentPlayer = 'circle';
     iconPlayer.src = 'podklady/circle.svg';
   }
+  setTimeout(whoIsWinner, 3000);
 };
 
 //restart hry ano nebo ne
