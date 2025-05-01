@@ -50,6 +50,9 @@ const whoIsWinner = () => {
   if (winner === 'o' || winner === 'x') {
     alert(`Vyhrál hráč se symbolem ${winner}.`);
     location.reload();
+  } else if (winner === 'tie') {
+    alert(`Hra skončila nerozhodně.`);
+    location.reload();
   }
 };
 
@@ -65,7 +68,7 @@ const addPlayer = (event) => {
     currentPlayer = 'circle';
     iconPlayer.src = 'podklady/circle.svg';
   }
-  setTimeout(whoIsWinner, 3000);
+  setTimeout(whoIsWinner, 300);
 };
 
 //restart hry ano nebo ne
