@@ -1,3 +1,5 @@
+import { findWinner } from 'https://unpkg.com/piskvorky@0.1.4';
+
 let currentPlayer = 'circle';
 
 const gameArea = document.querySelector('.game__area');
@@ -13,8 +15,10 @@ const btnRestart = document.querySelector('.game__btn--restart');
   }
 };
 */
+//pridat policka
+
 const addArea = () => {
-  gameArea.innerHtml = '';
+  gameArea.innerHTML = '';
   for (let i = 0; i < 100; i++) {
     gameArea.innerHTML += `<button class="game__box"></button>`;
   }
@@ -22,8 +26,34 @@ const addArea = () => {
 addArea();
 
 const gameBox = document.querySelectorAll('.game__box');
-//console.log(gameBox);
 
+// pole tahu
+const getField = () => {
+  let field = [];
+  gameBox.forEach((box) => {
+    if (box.classList.contains('board__field--circle')) {
+      field.push('o');
+    } else if (box.classList.contains('board__field--cross')) {
+      field.push('x');
+    } else {
+      field.push('_');
+    }
+  });
+  return field;
+};
+
+//kontrola vyherce
+
+const whoIsWinner = () => {
+  const gameField = getField();
+  const winner = findWinner(gameField);
+  if (winner === 'o' || winner === 'x') {
+    alert(`Vyhrál hráč se symbolem ${winner}.`);
+    location.reload();
+  }
+};
+
+//pridavame krizek nebo kolecko
 const addPlayer = (event) => {
   event.target.disabled = true;
   if (currentPlayer === 'circle') {
@@ -37,6 +67,7 @@ const addPlayer = (event) => {
   }
 };
 
+//restart hry ano nebo ne
 const restart = (event) => {
   if (!window.confirm('Opravdu chceš začít znovu?')) {
     event.preventDefault();
