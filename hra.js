@@ -6,24 +6,41 @@ const gameArea = document.querySelector('.game__area');
 const iconPlayer = document.querySelector('.game__icon--player');
 const btnRestart = document.querySelector('.game__btn--restart');
 
-/*const addArea = () => {
-  for (let i = 0; i < 100; i++) {
-    const gameBox = document.createElement('button');
-    gameBox.classList.add('game__box');
-    gameArea.appendChild(gameBox);
-    gameBox.addEventListener('click', addPlayer);
+//pridavame krizek nebo kolecko
+const addPlayer = (event) => {
+  event.target.disabled = true;
+  if (currentPlayer === 'circle') {
+    event.target.classList.add('board__field--circle');
+    currentPlayer = 'cross';
+    iconPlayer.src = 'podklady/cross.svg';
+  } else {
+    event.target.classList.add('board__field--cross');
+    currentPlayer = 'circle';
+    iconPlayer.src = 'podklady/circle.svg';
   }
+  setTimeout(whoIsWinner, 300);
 };
-*/
+
 //pridat policka
 
 const addArea = () => {
   gameArea.innerHTML = '';
   for (let i = 0; i < 100; i++) {
-    gameArea.innerHTML += `<button class="game__box"></button>`;
+    const button = document.createElement('button');
+    button.classList.add('game__box');
+    button.addEventListener('click', addPlayer);
+    gameArea.appendChild(button);
   }
 };
+
 addArea();
+
+/*const addArea = () => {
+  gameArea.innerHTML = '';
+  for (let i = 0; i < 100; i++) {
+    gameArea.innerHTML += `<button class="game__box"></button>`;
+  }
+};*/
 
 const gameBox = document.querySelectorAll('.game__box');
 
@@ -54,21 +71,6 @@ const whoIsWinner = () => {
     alert(`Hra skončila nerozhodně.`);
     location.reload();
   }
-};
-
-//pridavame krizek nebo kolecko
-const addPlayer = (event) => {
-  event.target.disabled = true;
-  if (currentPlayer === 'circle') {
-    event.target.classList.add('board__field--circle');
-    currentPlayer = 'cross';
-    iconPlayer.src = 'podklady/cross.svg';
-  } else {
-    event.target.classList.add('board__field--cross');
-    currentPlayer = 'circle';
-    iconPlayer.src = 'podklady/circle.svg';
-  }
-  setTimeout(whoIsWinner, 300);
 };
 
 //restart hry ano nebo ne
