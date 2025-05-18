@@ -61,7 +61,7 @@ const getField = () => {
 
 //kontrola vyherce
 
-const whoIsWinner = () => {
+const whoIsWinner = async () => {
   const gameField = getField();
   const winner = findWinner(gameField);
   if (winner === 'o' || winner === 'x') {
@@ -70,6 +70,26 @@ const whoIsWinner = () => {
   } else if (winner === 'tie') {
     alert(`Hra skončila nerozhodně.`);
     location.reload();
+  } else if (currentPlayer === 'cross') {
+    const response = await fetch(
+      'https://piskvorky.czechitas-podklady.cz/api/suggest-next-move',
+      {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify({
+          board: gameField,
+          player: 'x', // Hledá tah pro křížek.
+        }),
+      },
+    );
+    const data = await response.json();
+    console.log(data);
+    const { x, y } = data.position;
+    const field = gameBox[x + y * 10];
+    console.log('policko', field);
+    field.click();
   }
 };
 
